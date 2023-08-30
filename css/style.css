@@ -52,7 +52,7 @@
 }
 
 .thumb.active {
-    border: 2px solid #ccc;
+    border: 5px solid goldenrod;
     opacity: 1;
 }
 

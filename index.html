@@ -12,11 +12,9 @@
 <body>
 
     <div id="app">
-
-        <div class="container">
+        <div class="container" tabindex="0" @keyup.left="goPrev()" @keyup.right="goNext()">
             <div class="slider-wrapper" tabindex="0">
-
-                <div class="item" @mouseover="stopAutoplay()" @mouseleave = "setAutoplay()">
+                <div class="item" @mouseOver="stopAutoplay()" @mouseLeave = "setAutoplay()">
                     <img :src="slides[activeIndex].image" :alt="slides[activeIndex].title" />
                     <div class="text">
                         <h3>{{slides[activeIndex].title}}</h3>
