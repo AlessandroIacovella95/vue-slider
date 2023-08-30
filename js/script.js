@@ -35,6 +35,7 @@ const { createApp } = Vue
             }
         ],
         activeIndex: 0,
+        interval: false
     }
     },
 
@@ -54,7 +55,30 @@ const { createApp } = Vue
             } else {
                 this.activeIndex = this.slides.length -1;
             }  
-        }
+        },
 
-    }
+        clickThumb(index){
+            this.activeIndex = index
+        },
+
+        setAutoplay(){
+            if (!this.interval) {
+                this.interval = setInterval(()=>{
+                    this.goNext();
+                },3000);  
+            }
+        },
+
+        stopAutoplay(){
+            if (this.interval) {
+                clearInterval(this.interval);
+                this.interval= false;  
+            }
+        },
+    },
+
+    created (){
+        this.setAutoplay()
+
+    },
   }).mount('#app')
